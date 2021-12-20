@@ -29,11 +29,12 @@ target_include_directories(${TARGET_NAME_LIB} PUBLIC
 target_link_libraries(${TARGET_NAME_LIB} PUBLIC
 ${PROJECT_WARNINGS}
 ${PROJECT_OPTIONS}
-  CONAN_PKG::boost
+  CONAN_PKG::matchmaking_proxy
+  CONAN_PKG::corrade
 )
 target_compile_definitions(${TARGET_NAME_LIB} PUBLIC "$<$<CONFIG:DEBUG>:DEBUG>")
 target_compile_definitions(${TARGET_NAME_LIB} PUBLIC _LIBCPP_ENABLE_CXX20_REMOVED_TYPE_TRAITS)
-target_compile_definitions(${TARGET_NAME_LIB} PUBLIC BOOST_ASIO_DISABLE_THREADS)
+# target_compile_definitions(${TARGET_NAME_LIB} PUBLIC BOOST_ASIO_DISABLE_THREADS)
 # target_compile_definitions(${TARGET_NAME_LIB} PUBLIC BOOST_ASIO_ENABLE_HANDLER_TRACKING)
 
 # create executable
@@ -49,3 +50,5 @@ add_executable(${TARGET_NAME}
 target_link_libraries(${TARGET_NAME} PUBLIC
   ${TARGET_NAME_LIB}
 )
+
+target_compile_definitions(CONAN_PKG::matchmaking_proxy INTERFACE PATH_TO_USER_DEFINED_GAME_OPTION="${CMAKE_CURRENT_SOURCE_DIR}/src/userDefinedGameOption.hxx")
