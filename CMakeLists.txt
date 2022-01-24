@@ -26,7 +26,7 @@ target_include_directories(${TARGET_NAME_LIB} PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
   $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
   )
-target_link_libraries(${TARGET_NAME_LIB} PUBLIC
+target_link_libraries(${TARGET_NAME_LIB} 
 ${PROJECT_WARNINGS}
 ${PROJECT_OPTIONS}
   CONAN_PKG::matchmaking_proxy
