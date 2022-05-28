@@ -86,5 +86,5 @@ main (int argc, char *argv[])
       std::printf ("Exception: %s\n", e.what ());
     }
   return 0;
-  // TODO fix conen recipe so we do not have undifined references
+  // TODO fix conan recipe so we do not have undifined references
 }
